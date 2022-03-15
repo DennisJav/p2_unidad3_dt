@@ -58,7 +58,7 @@ public class DetalleVentasServiceImpl implements IDetalleVentaService{
 			v.setNumero(numeroVenta);
 			v.setCedulaCliente(cedula);
 			v.setFecha(LocalDateTime.now());
-			
+			v.setTotalVenta(vender.getPrecio().multiply(new BigDecimal((cantidad <- vender.getStock().intValueExact()) ? cantidad : vender.getStock().intValueExact())));
 		}
 		
 		
