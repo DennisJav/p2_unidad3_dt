@@ -50,8 +50,16 @@ public class DetalleVentasServiceImpl implements IDetalleVentaService{
 		// TODO Auto-generated method stub
 		
 		Producto vender = this.productosService.buscarCodigo(codigo);
+		Integer cant = vender.getStock().intValueExact();
 		
-		if(venta == null || )
+		if(vender == null || cant > 0) {
+			
+			Venta v =  new Venta();
+			v.setNumero(numeroVenta);
+			v.setCedulaCliente(cedula);
+			v.setFecha(LocalDateTime.now());
+			
+		}
 		
 		
 	}
