@@ -30,7 +30,7 @@ public class Venta {
 	@Column(name="ven_fecha")
 	private LocalDateTime fecha;
 	@Column(name = "ven_cedula_cliente")
-	private Integer cedulaCliente;
+	private String cedulaCliente;
 
 	@Column(name="ven_total_vental")
 	private BigDecimal totalVenta;
@@ -42,7 +42,7 @@ public class Venta {
 	private List<DetalleVenta> detalleventas;
 	
 	@OneToMany(mappedBy =  "venta", cascade = CascadeType.ALL)
-	private List<Producto> productosV;
+	private List<Producto> producto;
 	
 	
 	//Metodos set y get
@@ -52,12 +52,12 @@ public class Venta {
 	public List<DetalleVenta> getDetalleventas() {
 		return detalleventas;
 	}
-	public List<Producto> getProductosV() {
-		return productosV;
-	}
-	public void setProductosV(List<Producto> productosV) {
-		this.productosV = productosV;
-	}
+//	public List<Producto> getProductosV() {
+//		return producto;
+//	}
+//	public void setProductosV(List<Producto> productosV) {
+//		this.producto = productosV;
+//	}
 	public void setDetalleventas(List<DetalleVenta> detalleventas) {
 		this.detalleventas = detalleventas;
 	}
@@ -80,10 +80,10 @@ public class Venta {
 	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
-	public Integer getCedulaCliente() {
+	public String getCedulaCliente() {
 		return cedulaCliente;
 	}
-	public void setCedulaCliente(Integer cedulaCliente) {
+	public void setCedulaCliente(String cedulaCliente) {
 		this.cedulaCliente = cedulaCliente;
 	}
 	public BigDecimal getTotalVenta() {

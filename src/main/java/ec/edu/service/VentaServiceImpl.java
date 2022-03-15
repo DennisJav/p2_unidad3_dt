@@ -1,45 +1,42 @@
-package ec.edu.repository;
+package ec.edu.service;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ec.edu.modelo.Venta;
+import ec.edu.repository.IVentaRepo;
 
-@Transactional
-@Repository
-public class VentaRepoImpl implements IVentaRepo{
+@Service
+public class VentaServiceImpl implements IVentaService{
 
-	@PersistenceContext
-	private EntityManager entityManager;
+	@Autowired
+	private IVentaRepo ventaRepo;
 	
 	@Override
 	public void insertar(Venta venta) {
 		// TODO Auto-generated method stub
-	
-		this.entityManager.persist(venta);
+		
+		this.ventaRepo.insertar(venta);
 	}
 
 	@Override
 	public Venta buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.ventaRepo.buscar(id);
 	}
 
 	@Override
 	public void actualizar(Venta venta) {
 		// TODO Auto-generated method stub
-		this.entityManager.merge(venta);
+		this.ventaRepo.actualizar(venta);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		this.ventaRepo.eliminar(id);
 	}
 
 	@Override

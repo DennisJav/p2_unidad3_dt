@@ -12,4 +12,8 @@ public interface IProductoRepo {
 	
 	void eliminar(Integer id);
 	
+	void actualizarStock(Producto producto);
+	
+	Producto buscarCodigo(String codigo);
+	
 }

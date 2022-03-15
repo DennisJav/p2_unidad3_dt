@@ -34,7 +34,7 @@ public class Producto {
 	@Column(name="prod_categoria")
 	private String categoria;
 	@Column(name = "prod_stock")
-	private Integer stock;
+	private BigDecimal stock;
 	@Column(name="prod_precio")
 	private BigDecimal precio;
 	
@@ -43,10 +43,7 @@ public class Producto {
 	@OneToMany(mappedBy =  "producto", cascade = CascadeType.ALL)
 	private List<DetalleVenta> detalleventas;
 	
-	@ManyToOne
-	@JoinColumn(name = "ven_id")
-	private Venta ventap;
-	
+
 	
 	//metodos set y get
 	
@@ -56,12 +53,8 @@ public class Producto {
 	public List<DetalleVenta> getDetalleventas() {
 		return detalleventas;
 	}
-	public Venta getVentap() {
-		return ventap;
-	}
-	public void setVentap(Venta ventap) {
-		this.ventap = ventap;
-	}
+
+
 	public void setDetalleventas(List<DetalleVenta> detalleventas) {
 		this.detalleventas = detalleventas;
 	}
@@ -90,10 +83,10 @@ public class Producto {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	public Integer getStock() {
+	public BigDecimal getStock() {
 		return stock;
 	}
-	public void setStock(Integer stock) {
+	public void setStock(BigDecimal stock) {
 		this.stock = stock;
 	}
 	public BigDecimal getPrecio() {
